@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Loading Effect</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: #f20b0b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1500px;
+      font-family: Arial, sans-serif;
+    }
+
+    .loader {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle, #ecff40, #ffa024);
+      border-radius: 0%;
+      transform: scale(1) translateZ(0px);
+      animation: zoomIn 3s infinite ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 50px rgba(102, 230, 255, 0.5);
+    }
+
+    .loader span {
+      font-size: 24px;
+      color: #150707;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transform: translateZ(10px);
+      animation: textZoom 3s infinite ease-in-out;
+    }
+
+    @keyframes zoomIn {
+      0% {
+        transform: scale(1) translateZ(0px);
+      }
+      50% {
+        transform: scale(2) translateZ(150px);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(5) translateZ(500px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes textZoom {
+      0% {
+        transform: translateZ(0px);
+      }
+      50% {
+        transform: translateZ(100px);
+      }
+      100% {
+        transform: translateZ(200px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <span>YOUTHFEST</span>
+  </div>
+</body>
+</html>

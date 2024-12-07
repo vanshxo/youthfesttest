@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youth Fest - Google Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <p id="user-name" style="font-weight: bold;"></p>
+
+    <h1>Youth Fest 2024</h1>
+
+    <button id="login-btn">Login with Google</button>
+    <div id="form-container" style="display: none;">
+      <h2>Register for the Event</h2>
+      <input type="text" id="name" placeholder="Your Name" required>
+      <button id="pay-now-btn">Pay Now</button>
+      <button id="logout-btn" style="display: block;">Logout</button>
+
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>

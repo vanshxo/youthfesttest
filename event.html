@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Listing</title>
+  <link rel="stylesheet" href="event.css">
+</head>
+<body>
+  <h1 class="title">Event List</h1>
+  <div class="event-container">
+    <!-- Event 1 -->
+    <div class="event-card" onclick="openModal('event1')">
+      <img src="event1.jpg" alt="Event 1">
+      <div class="event-info">
+        <h2>Event 1</h2>
+        <p>Price: ₹500</p>
+        <button class="register-btn">Register Now</button>
+      </div>
+    </div>
+
+    <!-- Event 2 -->
+    <div class="event-card" onclick="openModal('event2')">
+      <img src="event2.jpg" alt="Event 2">
+      <div class="event-info">
+        <h2>Event 2</h2>
+        <p>Price: ₹300</p>
+        <button class="register-btn">Register Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="event-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title">Event Title</h2>
+      <p id="modal-description">Event description goes here...</p>
+      <button class="register-btn">Register Now</button>
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script src="event.js"></script>
+</body>
+</html>
