@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youthfest Countdown</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Michroma&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Bungee+Tint&family=Londrina+Shadow&family=Michroma&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bungee+Tint&family=Michroma&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Bungee+Tint&family=Londrina+Shadow&family=Michroma&family=Nabla&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Bungee+Tint&family=Londrina+Shadow&family=Michroma&family=Monoton&family=Nabla&display=swap" rel="stylesheet">
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: "Michroma", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        overflow: hidden;
+    }
+    
+    .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0.7;
+    }
+    
+    .countdown-container {
+        border: solid;
+        border-radius: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: transparent;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%; /* Adjust width */
+        max-width: 400px;
+        padding: 20px;
+        
+    }
+    
+    .preregis {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-family: "Michroma", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        padding: 15px 20px;
+        border-radius: 20px;
+        background: linear-gradient(to right, #444, #222);
+        color: white;
+        transition: all 0.3s ease-in-out;
+        font-size: 1rem;
+    }
+
+    .preregis:hover {
+        background: linear-gradient(to right, #000000, #333333);
+        transform: translate(-50%, -50%) scale(1.2);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+    }
+    
+    .countdown-spinner {
+        display: flex;
+        justify-content: center;
+        gap: 5%;
+    }
+    
+    .spinner {
+        width: 18vw; /* Relative width for responsiveness */
+        height: 18vw; /* Relative height for responsiveness */
+        max-width: 100px; /* Set max size for larger screens */
+        max-height: 100px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: spin 1s linear infinite;
+        background: none;
+    }
+    
+    .spinner-content {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: rgb(0, 0, 0);
+    }
+    
+    .spinner-value {
+        font-family: "Barlow Condensed", serif;
+        font-weight: 800;
+        font-size: 1.5rem; /* Responsive font size */
+    }
+    
+    .spinner-label {
+        font-size: 0.8rem; /* Responsive font size */
+        text-transform: uppercase;
+        margin-top: 5px;
+    }
+    
+    .youthfest-title {
+        font-family: "Monoton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 6vw; /* Scales with screen size */
+        display: flex;
+        gap: 0.2em;
+        overflow: hidden;
+    }
+    
+    .char {
+        opacity: 1;
+        transform: translateY(-100px) scale(0.5);
+        animation: crash 0.5s forwards;
+    }
+    
+    .youthfest-content {
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 80%;
+        font-size: 1rem;
+        color: white;
+        line-height: 1.5;
+    }
+    
+    @keyframes crash {
+        0% {
+            opacity: 0;
+            transform: translateY(-100px) scale(0.5);
+        }
+        50% {
+            opacity: 1;
+            transform: translateY(0) scale(1.2);
+        }
+        100% {
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .countdown-container{
+            top:70%;
+            background: transparent;
+        }
+        .spinner {
+            width: 22vw;
+            height: 22vw;
+        }
+        .spinner-value {
+            font-size: 1.2rem;
+        }
+        .spinner-label {
+            font-size: 0.7rem;
+        }
+        .youthfest-title {
+            font-size: 8vw;
+        }
+        .youthfest-content {
+            top:35%;
+            font-size: 0.9rem;
+        }
+        .preregis {
+            font-size: 0.8rem;
+            padding: 10px 15px;
+            top: 90%;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="img/gallery/855205-hd_1920_1080_30fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h1 class="youthfest-title"></h1>
+
+    
+    <p class="youthfest-content"> Youth Fest is an annual gathering of youth with various
+        activities including competitive events in the fields of
+        sports,culture & literature, including quizzes, talks, debates,
+        Kavyanjali Yoga and many more. Organised by Think India MNIT
+        Jaipur, it is celebrated to commemorate the birth anniversary of
+        youth icon Swami Vivekananda Ji.</p>
+    <div class="countdown-container">
+        WEBSITE REVEAL
+        <div class="countdown-spinner">
+            
+            <div class="spinner" id="days-spinner">
+                <div class="spinner-content">
+                    <span class="spinner-value" id="days">00</span>
+                    <span class="spinner-label">Days</span>
+                </div>
+            </div>
+            <div class="spinner" id="hours-spinner">
+                <div class="spinner-content">
+                    <span class="spinner-value" id="hours">00</span>
+                    <span class="spinner-label">Hours</span>
+                </div>
+            </div>
+            <div class="spinner" id="minutes-spinner">
+                <div class="spinner-content">
+                    <span class="spinner-value" id="minutes">00</span>
+                    <span class="spinner-label">Minutes</span>
+                </div>
+            </div>
+            <div class="spinner" id="seconds-spinner">
+                <div class="spinner-content">
+                    <span class="spinner-value" id="seconds">00</span>
+                    <span class="spinner-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <button id="prereg" class="preregis"> PRE REGISTER </button>
+    
+
+    <script>
+        // Set the date for Youthfest 2025
+        
+        const countDownDate = new Date("Jan 11, 2025 00:00:00").getTime();
+
+        function updateSpinner(element, value, total) {
+            const spinner = element.parentElement;
+            const percentage = (value / total) * 360;
+            spinner.style.background = "none";
+        }
+
+        // Update the countdown every 1 second
+        const x = setInterval(function() {
+            // Get today's date and time
+            const now = new Date().getTime();
+            
+            // Find the distance between now and the count down date
+            const distance = countDownDate - now;
+            
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the result in the elements
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const minutesEl = document.getElementById("minutes");
+            const secondsEl = document.getElementById("seconds");
+
+            daysEl.innerHTML = days < 10 ? "0" + days : days;
+            hoursEl.innerHTML = hours < 10 ? "0" + hours : hours;
+            minutesEl.innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            secondsEl.innerHTML = seconds < 10 ? "0" + seconds : seconds;
+            
+            // Update spinner animations
+            updateSpinner(daysEl, days, 365);
+            updateSpinner(hoursEl, hours, 24);
+            updateSpinner(minutesEl, minutes, 60);
+            updateSpinner(secondsEl, seconds, 60);
+            
+            // If the count down is finished, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown-spinner").innerHTML = "YOUTHFEST IS HERE!";
+            }
+        }, 1000);
+
+        // Ensure video plays automatically
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.background-video');
+            video.play().catch(e => {
+                console.log('Autoplay was prevented. User interaction may be required.');
+            });
+        });
+
+        const titleText = "Youthfest'25";
+        const titleElement = document.querySelector('.youthfest-title');
+        const crashSound = document.getElementById('crash-sound');
+    
+        // Create spans for each character
+        titleText.split('').forEach((char, index) => {
+          const span = document.createElement('span');
+          span.classList.add('char');
+          span.style.animationDelay = `${index * 0.2}s`; // Add delay for animation
+          span.textContent = char;
+          titleElement.appendChild(span);
+        });
+    
+        // Unlock audio playback
+ 
+    
+        // Start the animation and sound
+        function startAnimation() {
+          document.querySelectorAll('.char').forEach((charElement, index) => {
+            charElement.addEventListener('animationstart', () => {
+              setTimeout(() => {
+                crashSound.currentTime = 0; // Reset sound
+                crashSound.play();
+              }, index * 200);
+            });
+          });
+        }
+
+    </script>
+     
+    <script type="module" src="pre.js"></script>
+</body>
+</html>

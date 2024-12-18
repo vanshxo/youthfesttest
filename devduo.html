@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouthFest Developers</title>
+        <!-- <link rel="manifest" href="site.webmanifest"> -->
+        <link rel="shortcut icon" type="image/x-icon" href="Screenshot_2024-12-01_at_10.26.13_PM_1-removebg-preview.png">
+        <!-- Place favicon.ico in the root directory -->
+    
+        <!-- CSS here -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/themify-icons.css">
+        <link rel="stylesheet" href="css/gijgo.css">
+        <link rel="stylesheet" href="css/nice-select.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/slicknav.css">
+    
+        <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+        <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="Screenshot_2024-12-01_at_10.26.13_PM_1-removebg-preview.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+
+    <style>
+        body {
+            background-color: black;
+            color: #ffffff;
+            font-family:   Geneva, Tahoma, sans-serif;
+            overflow-x: hidden;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .developer-card {
+            opacity: 0;
+            animation: slideIn 0.8s forwards;
+            animation-delay: calc(var(--delay) * 300ms);
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .developer-card:hover {
+            transform: scale(1.05) rotateY(10deg);
+            box-shadow: 0 15px 30px rgba(255,0,0,0.3);
+        }
+        .developer-image-container {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; /* 1:1 aspect ratio */
+            overflow: hidden;
+        }
+        .developer-image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            
+            object-fit: cover;
+            object-position: center;
+        }
+        .developer-card .overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(30,30,30,0.9));
+            transition: opacity 0.3s ease;
+        }
+        .social-icons a {
+            color: #ff0000;
+            transition: all 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #ff4444;
+            transform: scale(1.1);
+        }
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #1a1a1a, #121212);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-black p-8 relative">
+    <br>
+    <br>
+    <br>
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-3">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="index.html">home</a></li>
+                                            <li><a href="Program.html">Events</a></li>
+                                            <li><a href="index.html">About</a></li>
+                                            
+                                            
+                                            <!-- <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="about.html">about</a></li>
+                                                    <li><a href="Program.html">Program</a></li>
+                                                    <li><a href="Venue.html">Venue</a></li>
+                                                    <li><a href="elements.html">elements</a></li>
+                                                </ul>
+                                            </li> -->
+                                            
+                                            <li><a href="">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                                <div class="buy_tkt">
+                                    <!-- <button class="book_btn d-none d-lg-block" id="login-btn">LOGIN</button> -->
+                                    <p id="user-name" style="display: none;" class="user-name"></p> 
+                                    <!-- <button class="book_btn d-none d-lg-block" id="logout-btn" style="display: none;">LOGOUT</button> -->
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="parallax-bg"></div>
+    <div class="container mx-auto relative z-10">
+        <h1 class="text-4xl text-center text-red-600 mb-16 font-bold  animate-fade-in" style="animation-delay: 0.2s;">
+             Developer Duo
+        </h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="developer-card" style="--delay: 0">
+                <div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl relative">
+                    <div class="developer-image-container">
+                        <img src="img/devlopers/vansh.jpeg" alt="Vansh Khatri">
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <h2 class="text-2xl font-bold text-red-500 mb-2">Vansh Khatri</h2>
+                        <p class="text-gray-300 mb-4">Backend Developer</p>
+                        <p class="text-gray-300 mb-4">Database management</p>
+                        <div class="social-icons flex space-x-4">
+                            <a href="https://github.com/vanshxo" class="flex items-center space-x-2">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/vansh-khatri-3589b1282/" class="flex items-center space-x-2">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://www.instagram.com/_vansssh" class="flex items-center space-x-2">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="developer-card" style="--delay: 1">
+                <div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl relative">
+                    <div class="developer-image-container">
+                        <img src="img/devlopers/vansh.jpeg" alt="Developer Jane">
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <h2 class="text-2xl font-bold text-red-500 mb-2">Jane Smith</h2>
+                        <p class="text-gray-300 mb-4">Backend Developer</p>
+                        <div class="social-icons flex space-x-4">
+                            <a href="#" class="flex items-center space-x-2">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="flex items-center space-x-2">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="developer-card" style="--delay: 2">
+                <div class="bg-gray-900 rounded-xl overflow-hidden shadow-2xl relative">
+                    <div class="developer-image-container">
+                        <img src="img/devlopers/shivam.jpeg" alt="Shivam Mittal">
+                    </div>
+                    <div class="p-6 relative z-10">
+                        <h2 class="text-2xl font-bold text-red-500 mb-2">Shivam Mittal</h2>
+                        <p class="text-gray-300 mb-4">Frontend Developer</p>
+                        <p class="text-gray-300 mb-4">Design Curator</p>
+                        <div class="social-icons flex space-x-4">
+                            <a href="" class="flex items-center space-x-2">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/shivam-kr-mittal-62bb9130a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="flex items-center space-x-2">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://www.instagram.com/_shivam_mittal__/profilecard/?igsh=MXNqNncxYnd1bmh3aQ==" class="flex items-center space-x-2">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="footer_widget">
+                            <div class="address_details text-center">
+                                <h4 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">dates</h4>
+                                <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">Youthfest</h3>
+                                <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Unite, Celebrate, Compete: MNIT YouthFest – Where Culture, Sports, and Passion Collide!</p>
+                                <a href="devduo.html" class="boxed-btn3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">DEV DUO</a>
+                                <a href="#" class="boxed-btn3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">Our Team</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
+
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Youthfest MNIT
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</body>
+</html>

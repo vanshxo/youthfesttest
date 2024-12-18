@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="img/gallery/logofinal.png">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
@@ -30,26 +30,22 @@
 /* Common button styles */
 /* General button styling */
 /* General button styling */
-.book_btn {
+/* .book_btn {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
-}
+} */
 
-/* Login button */
-#login-btn {
-  background-color: #007BFF;
-  color: white;
-}
+
 
 /* Username display */
 #user-name {
   /* background-color: #f44336; */
-  background: transparent;
-  color: #fffb2c;
+  
+  background-color: #1F54A4;
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -59,23 +55,45 @@
   text-align: center;
   display: inline-block;
 }
-
-/* Logout button */
-#logout-btn {
-  background-color: #f44336;
-  color: white;
+/* Common styles for both buttons */
+button {
+  border: none;
+  background-image: linear-gradient(45deg, #1F54A4, #FF5281);
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 0 transparent; /* No border glow initially */
 }
 
-/* Hover effect for username to show logout */
+/* Specific styles for login and logout buttons */
+#login-btn {
+  border-radius: 5px;
+}
+
+#logout-btn {
+  border-radius: 20px;
+}
+
+/* Hover effect for buttons */
+button:hover {
+  transform: scale(1.1); /* Grow in size */
+  background-image: linear-gradient(45deg, #FF5281, #1F54A4); /* Reverse gradient */
+  box-shadow: 0 0 10px 5px rgba(255, 82, 129, 0.5), 0 0 10px 5px rgba(31, 84, 164, 0.5); /* Gradient border light */
+}
+
+/* Focus effect for accessibility */
+button:focus {
+  outline: none;
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7); /* White glow on focus */
+}
+
 #user-name:hover {
-  background-color: #b30000;
+  background-color: #FF5281;
 }
-
 
     
         #content {
@@ -114,11 +132,11 @@
                     <div class="header_bottom_border">
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-3">
-                                <div class="logo">
+                                <!-- <div class="logo">
                                     <a href="index.html">
-                                        <img src="" alt="">
+                                        <img src="img/gallery/logofinal-removebg-preview.png" alt="">
                                     </a>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-xl-6 col-lg-6">
                                 <div class="main-menu  d-none d-lg-block">
@@ -126,7 +144,7 @@
                                         <ul id="navigation">
                                             <li><a href="index.html">home</a></li>
                                             <li><a href="Program.html">Events</a></li>
-                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="index.html">About</a></li>
                                             
                                             
                                             <!-- <li><a href="#">pages <i class="ti-angle-down"></i></a>
@@ -138,16 +156,17 @@
                                                 </ul>
                                             </li> -->
                                             
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div class="buy_tkt">
-                                    <!-- <button class="book_btn d-none d-lg-block" id="login-btn">LOGIN</button> -->
+                                    
                                     <p id="user-name" style="display: none;" class="user-name"></p> 
-                                    <!-- <button class="book_btn d-none d-lg-block" id="logout-btn" style="display: none;">LOGOUT</button> -->
+                                    <button class="d-lg-block" id="auth-btn">LOGIN</button>
+                                    
                                     
                                 </div>
                             </div>
@@ -418,7 +437,7 @@
                                 <h4 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">dates</h4>
                                 <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">Youthfest</h3>
                                 <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Unite, Celebrate, Compete: MNIT YouthFest – Where Culture, Sports, and Passion Collide!</p>
-                                <a href="#" class="boxed-btn3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">DEV DUO</a>
+                                <a href="devduo.html" class="boxed-btn3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">DEV DUO</a>
                                 <a href="#" class="boxed-btn3 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">Our Team</a>
 
                             </div>

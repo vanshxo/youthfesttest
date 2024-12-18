@@ -22,7 +22,7 @@
       position: relative;
       width:100vw;
       height: 100vh;
-      background: radial-gradient(circle, #ecff40, #ffa024);
+      background: radial-gradient(circle, #1F54A4, #FF5281);
       border-radius: 0%;
       transform: scale(1) translateZ(0px);
       animation: zoomIn 3s infinite ease-in-out;
@@ -33,7 +33,7 @@
     }
 
     .loader img {
-      width: 140px;
+      width: 110px;
       height: 100px;
       transform: translateZ(10px);
       animation: imageZoom 3s infinite ease-in-out;
@@ -44,11 +44,15 @@
         transform: scale(1) translateZ(0px);
       }
       50% {
-        transform: scale(2) translateZ(150px);
+        transform: scale(2) translateZ(200px);
+        opacity: 1;
+      }
+      80%{
+        transform: scale(3) translateZ(300px);
         opacity: 1;
       }
       100% {
-        transform: scale(5) translateZ(500px);
+        transform: scale(5) translateZ(550px);
         opacity: 0;
       }
     }
@@ -69,7 +73,7 @@
 </head>
 <body>
   <div class="loader">
-    <img src="Screenshot_2024-12-01_at_10.26.13_PM_1-removebg-preview.png" alt="Logo">
+    <img src="img/gallery/logofinal.png" alt="Logo">
   </div>
 </body>
 </html>

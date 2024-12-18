@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youthfest'25</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .youthfest-title {
+      display: flex;
+      gap: 5px;
+      font-size: 4rem;
+      overflow: hidden;
+    }
+
+    .char {
+      opacity: 1;
+      transform: translateY(-100px) scale(0.5);
+      animation: crash 0.5s forwards;
+    }
+
+    @keyframes crash {
+      0% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0.5);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(0) scale(1.2);
+      }
+      100% {
+        transform: translateY(0) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="youthfest-title"></h1>
+
+  <audio id="crash-sound" src="img/gallery/windy-thud-192374.mp3" preload="auto"></audio>
+
+  <script>
+    const titleText = "Youthfest'25";
+    const titleElement = document.querySelector('.youthfest-title');
+    const crashSound = document.getElementById('crash-sound');
+
+    // Create spans for each character
+    titleText.split('').forEach((char, index) => {
+      const span = document.createElement('span');
+      span.classList.add('char');
+      span.style.animationDelay = `${index * 0.2}s`; // Add delay for animation
+      span.textContent = char;
+      titleElement.appendChild(span);
+    });
+
+    // Unlock audio playback
+    function unlockAudio() {
+      const tempSound = crashSound.cloneNode(); // Clone the audio to trick the browser
+      tempSound.muted = true;
+      tempSound.play().then(() => {
+        tempSound.pause();
+        tempSound.remove();
+        startAnimation(); // Safe to start animation after unlocking
+      }).catch(err => {
+        console.warn("Autoplay restrictions might still apply:", err);
+      });
+    }
+
+    // Start the animation and sound
+    function startAnimation() {
+      document.querySelectorAll('.char').forEach((charElement, index) => {
+        charElement.addEventListener('animationstart', () => {
+          setTimeout(() => {
+            crashSound.currentTime = 0; // Reset sound
+            crashSound.play();
+          }, index * 200);
+        });
+      });
+    }
+
+    // Attempt unlocking the audio on first interaction or load
+    window.addEventListener('load', unlockAudio);
+    document.addEventListener('click', unlockAudio); // Fallback to interaction unlock
+  </script>
+</body>
+</html>
