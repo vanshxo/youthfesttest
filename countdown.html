@@ -93,8 +93,8 @@
     }
     
     .spinner-content {
-        width: 90%;
-        height: 90%;
+        width: 100%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -112,6 +112,8 @@
         font-size: 0.8rem; /* Responsive font size */
         text-transform: uppercase;
         margin-top: 5px;
+        position: relative;
+        top
     }
     
     .youthfest-title {
@@ -199,14 +201,9 @@
     <h1 class="youthfest-title"></h1>
 
     
-    <p class="youthfest-content"> Youth Fest is an annual gathering of youth with various
-        activities including competitive events in the fields of
-        sports,culture & literature, including quizzes, talks, debates,
-        Kavyanjali Yoga and many more. Organised by Think India MNIT
-        Jaipur, it is celebrated to commemorate the birth anniversary of
-        youth icon Swami Vivekananda Ji.</p>
+    <p class="youthfest-content"> Revolutionize your wardrobe for a greener planet! Opting for used clothes is not just a style choice; it's a commitment to environmental sustainability</p>
     <div class="countdown-container">
-        WEBSITE REVEAL
+        LAUNCHING
         <div class="countdown-spinner">
             
             <div class="spinner" id="days-spinner">
@@ -236,13 +233,13 @@
         </div>
         
     </div>
-    <button id="prereg" class="preregis"> PRE REGISTER </button>
+    <button id="prereg" class="preregis"> LEARN MORE </button>
     
 
     <script>
         // Set the date for Youthfest 2025
         
-        const countDownDate = new Date("Jan 11, 2025 00:00:00").getTime();
+        const countDownDate = new Date("Jan 26, 2025 00:00:00").getTime();
 
         function updateSpinner(element, value, total) {
             const spinner = element.parentElement;
